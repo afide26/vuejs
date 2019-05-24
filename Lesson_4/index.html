@@ -17,7 +17,7 @@
     <div class="row">
       <div class="col-md-12">
         <p>Number: {{counter}}</p>
-        <button v-on:click="incrementNum()">Click me!</button>
+        <button v-on:click="incrementNum(3)">Click me!</button>
         <p v-on:mousemove="getCoordinates">Coordinates:{{x}}/{{y}}</p>
       </div>
     </div>
@@ -33,8 +33,8 @@
         y: 0
       },
       methods: {
-        incrementNum() {
-          this.counter++;
+        incrementNum(step = 0) {
+          this.counter += step;
         },
         getCoordinates(e) {
           this.x = event.clientX;
