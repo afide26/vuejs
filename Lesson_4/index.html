@@ -20,7 +20,7 @@
         <button v-on:click="incrementNum(3, $event)">Click me!</button>
         <p v-on:mousemove="getCoordinates">
           Coordinates:{{x}}/{{y}}
-          - <span v-on:mousemove="dummy">DEAD SPOT</span>
+          - <span v-on:mousemove.stop="">DEAD SPOT</span>
         </p>
       </div>
     </div>
