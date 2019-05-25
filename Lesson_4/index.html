@@ -22,6 +22,7 @@
           Coordinates:{{x}}/{{y}}
           - <span v-on:mousemove.stop="">DEAD SPOT</span>
         </p>
+        <input type="text" v-on:keyup.enter="alertMe">
       </div>
     </div>
   </div>
@@ -45,6 +46,10 @@
         },
         dummy(e) {
           e.stopPropagation();
+        },
+        alertMe(e) {
+          alert(e.target.value)
+          e.target.value = ""
         }
       }
     });
