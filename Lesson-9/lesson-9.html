@@ -59,8 +59,14 @@
           <div class="demo" @click="attachGreen=!attachGreen" :class="{green:attachGreen}">
             GREEN
           </div>
-          <div class="demo" @click="attachBlue=!attachBlue" :class="{blue:attachBlue}">BLUE</div>
+          <div class="demo" :class="color">BLUE</div>
         </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr>
+        <input type="text" v-model="color">
       </div>
     </div>
   </div>
@@ -72,7 +78,8 @@
       data: {
         attachRed: false,
         attachGreen: false,
-        attachBlue: false
+        attachBlue: false,
+        color: 'green'
       },
       computed: {
         divClasses: function () {
