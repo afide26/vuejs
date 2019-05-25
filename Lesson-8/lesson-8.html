@@ -14,13 +14,23 @@
 
 <body>
   <div id="app" class="container my-5">
-    <h1>Lesson 8 - Reacting to changes with computed properties</h1>
-    <h3>This style is not DRY, the value of result is dependent on expressions used twice</h3>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Lesson 8 - Reacting to changes with computed properties</h1>
+        <h3>The DRY technique, using a function and it's return value to populate the result</h3>
+        <p>Count:{{count}} | {{secondCounter}} </p>
+        <p>{{result()}} | {{output}}</p>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button v-on:click="count++">Increase</button>
+        <button v-on:click="count--">Decrease</button>
+        <button v-on:click="secondCounter++">Increase Secondary Count</button>
+      </div>
+    </div>
     <div>
-      <button v-on:click="increase">Click me to increase!</button>
-      <button v-on:click="decrease">Click me to decrease!</button>
-      <p>Counter:{{count}}</p>
-      <p>Result:{{result}}</p>
     </div>
   </div>
 
@@ -31,18 +41,18 @@
       data: {
         name: "Alan Fidelino",
         count: 0,
-        result: 'The value is still below 10'
+        secondCounter: 0
+      },
+      computed: {
+        output() {
+          console.log("COMPUTED");
+          return this.count >= 5 ? 'The count is greater than or equal to 5' : 'The count is less than 5';
+        }
       },
       methods: {
-        increase() {
-          this.count++;
-          this.result = this.count > 10 ? `The result is ${this.count}` :
-            `The result still lower or equal to 10, it is ${this.count}`
-        },
-        decrease() {
-          this.count--;
-          this.result = this.count > 10 ? `The result is ${this.count}` :
-            `The result still lower or equal to 10, it is ${this.count}`
+        result() {
+          console.log("METHOD");
+          return this.count >= 5 ? 'The count is greater than or equal to 5' : 'The count is less than 5';
         }
       }
     })
