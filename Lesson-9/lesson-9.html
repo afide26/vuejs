@@ -53,7 +53,7 @@
       <div class="col-md-12">
         <h1>Lesson 9 - Dynamic Styling</h1>
         <div class="blocks">
-          <div class="demo" @click="attachRed=!attachRed" :class="{red:attachRed, blue:!attachRed}">
+          <div class="demo" @click="attachRed=!attachRed" :class="divClasses">
             RED
           </div>
           <div class="demo" @click="attachGreen=!attachGreen" :class="{green:attachGreen}">
@@ -73,6 +73,15 @@
         attachRed: false,
         attachGreen: false,
         attachBlue: false
+      },
+      computed: {
+        divClasses: function () {
+          console.log(this.attachGreen)
+          return {
+            red: this.attachRed,
+            blue: !this.attachRed,
+          }
+        }
       }
     })
   </script>
