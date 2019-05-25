@@ -54,6 +54,14 @@
           console.log("METHOD");
           return this.count >= 5 ? 'The count is greater than or equal to 5' : 'The count is less than 5';
         }
+      },
+      watch: {
+        count: function (value) {
+          var vm = this;
+          setTimeout(function () {
+            vm.count = 0;
+          }, 2000)
+        }
       }
     })
   </script>
