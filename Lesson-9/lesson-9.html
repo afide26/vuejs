@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Lesson 9 - Dynamic Styling</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <script src="../vue.js"></script>
+  <style>
+    .blocks {
+      margin: 20px auto;
+      display: flex;
+    }
+
+    .demo {
+      cursor: pointer;
+      height: 100px;
+      width: 100px;
+      background: gray;
+      display: flex;
+      flex-direction: column;
+      margin: 20px;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .red {
+      background: red;
+      border-radius: 10px;
+    }
+
+    .green {
+      background: green;
+      border-radius: 50%;
+    }
+
+    .blue {
+      background: blue;
+      border-top-right-radius: 40px;
+      border-bottom-left-radius: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="container my-5">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Lesson 9 - Dynamic Styling</h1>
+        <div class="blocks">
+          <div class="demo" @click="attachRed=!attachRed" :class={red:attachRed}>
+            RED
+          </div>
+          <div class="demo" @click="attachGreen=!attachGreen" :class={green:attachGreen}>
+            GREEN
+          </div>
+          <div class="demo" @click="attachBlue=!attachBlue" :class={blue:attachBlue}>BLUE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vue inline JS -->
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        attachRed: false,
+        attachGreen: false,
+        attachBlue: false
+      }
+    })
+  </script>
+  <!-- End of Vue inline JS -->
+
+  <!-- Bootstrap and related scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <!-- End of Bootstrap and related scripts -->
+</body>
+
+</html>
