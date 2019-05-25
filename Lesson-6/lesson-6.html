@@ -17,7 +17,7 @@
     <h1>Adding single expressions to elements</h1>
     <div class="row">
       <div class="col-md-12">
-        <p>Number: {{counter}}</p>
+        <p>Number: {{counter * 2}}</p>
         <p>The results below comes from a ternary operator:</p>
         <p>{{counter > 10 ? 'The count is greater than 10' : 'The count is less than 10'}}</p>
         <button v-on:click="incrementNum(3, $event)">This button increments by 3</button>
