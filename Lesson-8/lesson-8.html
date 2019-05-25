@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Lesson 8 - Reacting to changes with computed properties</title>
+  <title>Lesson 8.2 - Shorthand Techniques</title>
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
@@ -16,8 +16,17 @@
   <div id="app" class="container my-5">
     <div class="row">
       <div class="col-md-12">
-        <h1>Lesson 8 - Reacting to changes with computed properties</h1>
-        <h3>The DRY technique, using a function and it's return value to populate the result</h3>
+        <h1>Lesson 8 - Using Shorthands</h1>
+        <ul>
+          <li>
+            <code>Using @ to replace v-on. E.g. v-on:click can be @click</code>
+          </li>
+          <li>
+            <code>Using : to replace v-bind E.g. v-bind:src to :src </code>
+          </li>
+        </ul>
+        <button @click="changeLink">Change Link!</button>
+        <a :href="link">Link</a>
         <p>Count:{{count}} | {{secondCounter}} </p>
         <p>{{result()}} | {{output}}</p>
         </p>
@@ -25,9 +34,9 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <button v-on:click="count++">Increase</button>
-        <button v-on:click="count--">Decrease</button>
-        <button v-on:click="secondCounter++">Increase Secondary Count</button>
+        <button @click="count++">Increase</button>
+        <button @click="count--">Decrease</button>
+        <button @click="secondCounter++">Increase Secondary Count</button>
       </div>
     </div>
     <div>
@@ -41,7 +50,8 @@
       data: {
         name: "Alan Fidelino",
         count: 0,
-        secondCounter: 0
+        secondCounter: 0,
+        link: "https://alanfidelino.herokuapp.com"
       },
       computed: {
         output() {
@@ -53,6 +63,11 @@
         result() {
           console.log("METHOD");
           return this.count >= 5 ? 'The count is greater than or equal to 5' : 'The count is less than 5';
+        },
+
+        changeLink() {
+          this.link !== 'https://www.google.com.au' ? this.link = "https://www.google.com.au" :
+            this.link = "https://alanfidelino.herokuapp.com"
         }
       },
       watch: {
