@@ -28,22 +28,6 @@
       align-items: center;
       color: white;
     }
-
-    .red {
-      background: red;
-      border-radius: 10px;
-    }
-
-    .green {
-      background: green;
-      border-radius: 50%;
-    }
-
-    .blue {
-      background: blue;
-      border-top-right-radius: 40px;
-      border-bottom-left-radius: 40px;
-    }
   </style>
 </head>
 
@@ -53,13 +37,9 @@
       <div class="col-md-12">
         <h1>Lesson 9 - Dynamic Styling</h1>
         <div class="blocks">
-          <div class="demo" @click="attachRed=!attachRed" :class="divClasses">
-            RED
-          </div>
-          <div class="demo" @click="attachGreen=!attachGreen" :class="{green:attachGreen}">
-            GREEN
-          </div>
-          <div class="demo" :class=[color,{red:attachRed}]>BLUE</div>
+          <div class="demo" :style="{backgroundColor:color}"></div>
+          <div class="demo" :style="myStyles"></div>
+          <div class="demo"></div>
         </div>
       </div>
     </div>
@@ -67,6 +47,7 @@
       <div class="col-md-12">
         <hr>
         <input type="text" v-model="color">
+        <input type="text" v-model="width">
       </div>
     </div>
   </div>
@@ -76,17 +57,17 @@
     new Vue({
       el: "#app",
       data: {
-        attachRed: false,
-        attachGreen: false,
-        attachBlue: false,
-        color: 'blue'
+        color: "gray",
+        width: 100,
+        height: 100
       },
       computed: {
-        divClasses: function () {
-          console.log(this.attachGreen)
+        myStyles() {
           return {
-            red: this.attachRed,
-            blue: !this.attachRed,
+            backgroundColor: this.color,
+            width: `${this.width}px`,
+            height: `${this.width}px`,
+            borderRadius: '50%'
           }
         }
       }
