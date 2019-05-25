@@ -59,7 +59,7 @@
           <div class="demo" @click="attachGreen=!attachGreen" :class="{green:attachGreen}">
             GREEN
           </div>
-          <div class="demo" :class="color">BLUE</div>
+          <div class="demo" :class=[color,{red:attachRed}]>BLUE</div>
         </div>
       </div>
     </div>
@@ -79,7 +79,7 @@
         attachRed: false,
         attachGreen: false,
         attachBlue: false,
-        color: 'green'
+        color: 'blue'
       },
       computed: {
         divClasses: function () {
