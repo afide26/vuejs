@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Vue JS - Assignment</title>
+  <script src="../vue.js"></script>
+</head>
+
+<body>
+  <div id="exercise">
+    <p>VueJS is pretty cool - {{name}} - {{age}}</p>
+    <p>AGE * 3 = {{age * 3}}</p>
+    <p>RANDOM NUMBER FROM 0 AND 1 = {{getRandomNumber()}}</p>
+    <input type="text" :value="name" :placeholder="Change name" style="display:block; 
+      margin-right: auto; 
+      margin-bottom:10px;">
+    <p>Generated image:</p>
+    <img style=" display:block; margin-right: auto;" v-bind:src="link" alt="Photo">
+  </div>
+  <script>
+    new Vue({
+      el: "#exercise",
+      data: {
+        name: "Alan Fidelino",
+        age: 47,
+        link: "https://picsum.photos/id/304/200/300"
+      },
+      methods: {
+        getRandomNumber() {
+          return Math.floor(Math.random() * 2);
+        },
+        changeName(e) {
+          this.name = e.target.value;
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
